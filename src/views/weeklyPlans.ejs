@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/_head.ejs') %>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <%- include('partials/_header.ejs') %>
+            <div class="container-fluid page-body-wrapper">
+                <%- include('partials/_rightbarColorWidget.ejs') %>
+                    <%- include('partials/_sidebar.ejs') %>
+                        <div class="main-panel">
+                            <div class="content-wrapper">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin">
+                                        <div class="col-lg-12 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body mb-3r">
+                                                    <h4 class="card-title">Weekly plans
+                                                        <a href="/program/<%= program_id %> "
+                                                            class="btn btn-sm btn-danger ml-5 float-right">Back</a>
+                                                        <button class="btn btn-sm btn-primary float-right"
+                                                            onclick="planModal.show()">New
+                                                            Plan</button>
+                                                    </h4>
+                                                    <div class="row mt-60">
+                                                        <% if(weekly_plans.length){ %>
+                                                            <% weekly_plans.forEach((plan, index)=> {%>
+                                                                <div class="col-md-2 text-center">
+                                                                    <a target="_blank" class="plan-icon"
+                                                                        href="/week-plan/<%= plan.id %>">
+                                                                        <div><i class="icon-paper menu-icon fs100"></i>
+                                                                        </div>
+                                                                        <div class="mt-25"><span>
+                                                                                <%= plan.name %>
+                                                                            </span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <% }); %>
+                                                                    <% } else { %>
+                                                                        <div class="col-md-12 text-center">No plans yet.
+                                                                        </div>
+                                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="planModal" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <form action="/add-program-weekly-plan" method="POST">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="planModalHeading">Weekly Plan</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label>Name of the weekly plan</label>
+                                                    <input class="form-control" name="name" id="txtNameOfProgram">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="hidden" name="programId" value="<%= program_id %>">
+                                                    <input type="hidden" name="planId" value="<%= plan_id %>">
+                                                    <button type="button" class="btn btn-inverse-dark btn-sm"
+                                                        onclick="planModal.hide()">Close</button>
+                                                    <button type="submit" class="btn btn-success btn-sm">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+    </div>
+    <%- include('partials/_base.ejs') %>
+        <script>
+            let planModal = new bootstrap.Modal($_('planModal'), { keyboard: false, backdrop: true });
+        </script>
+        <script src="/js/lms-scripts.js"></script>
+</body>
+
+</html>

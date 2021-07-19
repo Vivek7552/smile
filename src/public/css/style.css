@@ -1,0 +1,79 @@
+.modal-title { font-weight: 600!important; }
+.table-btn { padding: 5px 1rem!important; }
+.form-control { height: 30px!important; }
+textarea.form-control { height: initial!important; }
+.form-control[type=file] { padding: 7px 13px!important; }
+
+.plan-icon { color: darkcyan; }
+.plan-icon:hover { color: #006666; }
+
+.obodo-box { background: #0D0A3A!important; }
+.obodo-theme { background: #06D6A0!important; }
+.sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link, .sidebar .nav:not(.sub-menu) > .nav-item:hover[aria-expanded="true"] {
+    background: #0D0A3A!important;
+}
+.sidebar .nav .nav-item .nav-link { color: white; }
+.sidebar .nav:not(.sub-menu) > .nav-item.active, 
+.sidebar .nav .nav-item.active > .nav-link,
+.sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded="true"],
+.sidebar .nav.sub-menu,
+#settings-trigger { background: #0D0A3A; }
+
+.sidebar .nav .nav-item .nav-link i.menu-arrow, .sidebar .nav .nav-item .nav-link i.menu-icon { color: white; }
+
+select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint
+{ color: #495076!important; }
+
+#loader { display: none; }
+
+.overlay {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #222;
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.overlay__inner {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.overlay__content {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner {
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+    border: 3px solid #f3f3f3;
+    /* Light grey */
+    border-top: 3px solid blue;
+    border-bottom: 3px solid blue;
+    animation: spin 1s infinite linear;
+    border-radius: 100%;
+    border-style: solid;
+    margin-left: 90%;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/************LMS CSS************/
+.divTask { margin-bottom: 20px; }
+.attachmentLabel { margin: 15px auto 5px; }
+.remove-file-icon { position: absolute; top: 6px; right: 20px; cursor: pointer; }
+.remove-file-icon-with-label { position: absolute; top: 31px; right: 20px; cursor: pointer; }

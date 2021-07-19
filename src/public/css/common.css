@@ -1,0 +1,35 @@
+a:hover { text-decoration: none; }
+label { font-weight: 600; font-size: 14px; }
+hr { margin-top: 2rem; margin-bottom: 2rem; border-top: initial; }
+
+.h25 { height: 25px!important; }
+
+
+.mt-5 { margin-top: 5px!important; }
+.mt-10 { margin-top: 10px!important; }
+.mt-15 { margin-top: 15px!important; }
+.mt-25 { margin-top: 25px!important; }
+.mt-40 { margin-top: 40px!important; }
+.mt-60 { margin-top: 60px!important; }
+
+.ml-5 { margin-left: 5px!important; }
+
+.mb-3r { margin-bottom: 3rem!important; }
+.mb-10 { margin-bottom: 10px!important; }
+.mb-15 { margin-bottom: 15px!important; }
+
+.pt-10 { padding-top: 10px!important; }
+.pt-22 { padding-top: 22px!important; }
+
+.fs12 { font-size: 12px!important; }
+.fs15 { font-size: 15px!important; }
+.fs18 { font-size: 18px!important; }
+.fs100 { font-size: 100px!important; }
+
+.w50 { width: 50%!important; }
+
+
+.color-darkcyan { color: darkcyan!important; }
+.color-dimdark { color: #737373!important; }
+.color-white { color: #fff!important; }
+.color-red { color: red!important; }

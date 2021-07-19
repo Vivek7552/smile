@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/_head.ejs') %>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <%- include('partials/_header.ejs') %>
+            <div class="container-fluid page-body-wrapper">
+                <%- include('partials/_rightbarColorWidget.ejs') %>
+                    <%- include('partials/_sidebar.ejs') %>
+                        <div class="main-panel">
+                            <div class="content-wrapper">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin">
+                                        <div class="col-lg-12 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Students</h4>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped dataTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Email</th>
+                                                                    <th>Level</th>
+                                                                    <th>Tutor Pref.</th>
+                                                                    <th>Tutor</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% for(var i=0; i < students.length; i++) { %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <%= `${students[i].first_name}
+                                                                                ${students[i].last_name}` %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= students[i].email %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= students[i].level %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= students[i].tutor_preference %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <% if(students[i].tutor_id){ %>
+                                                                                <%=`${students[i].tutor_firstname}
+                                                                                    ${students[i].tutor_lastname}` %>
+                                                                                    <% }else{ %>
+                                                                                        Unassigned
+                                                                                        <% } %>
+                                                                        </td>
+                                                                        
+                                                                            <td>
+                                                                                <button class="btn btn-primary btn-sm h25"
+                                                                                    data-studentId="<%= students[i].id %>"
+                                                                                    onclick="showStudent(this)">Assign</button>
+                                                                            </td>
+                                                                      
+                                                                    </tr>
+                                                                    <% } %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentLabel" Modal
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="studentTutorModalHeading"></h5>
+                                            </div>
+                                            <div class="modal-body" id="divStudentTutorDetails"></div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-inverse-dark btn-sm"
+                                                    onclick="studentModal.hide()">Close</button>
+                                                <a  id="btn-assign"
+                                                    class="btn btn-success btn-sm">Assign</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+    </div>
+
+    <%- include('partials/_base.ejs') %>
+    <script>
+        let tutorList= (`<%- tutors  %>`) ;
+    </script>
+    <script src="../js/student-scripts.js"></script>
+</body>
+
+</html>

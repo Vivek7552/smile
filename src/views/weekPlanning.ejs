@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/_head.ejs') %>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <%- include('partials/_header.ejs') %>
+            <div class="container-fluid page-body-wrapper">
+                <%- include('partials/_rightbarColorWidget.ejs') %>
+                    <%- include('partials/_sidebar.ejs') %>
+                        <div class="main-panel">
+                            <div class="content-wrapper">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin">
+                                        <div class="col-lg-12 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Week planning</h4>
+                                                    <div class="row mt-40">
+                                                        <div class="accordion" id="weekPlanAccordian">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="headingMonday">
+                                                                    <button class="accordion-button" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#collapseMonday"
+                                                                        aria-expanded="true"
+                                                                        aria-controls="collapseMonday">
+                                                                        Monday
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapseMonday"
+                                                                    class="accordion-collapse collapse show"
+                                                                    aria-labelledby="headingMonday"
+                                                                    data-bs-parent="#weekPlanAccordian">
+                                                                    <div class="accordion-body">
+                                                                        <div id="taskPlaceholderMonday"
+                                                                            class="taskPlaceholder">
+                                                                        </div>
+                                                                        <div class="addBtnHolder">
+                                                                            <button class="btn btn-sm btn-info"
+                                                                                onclick="addTask('taskPlaceholderMonday','Monday')"><i
+                                                                                    class="fas fa-plus-circle fs15"></i></button>
+                                                                            <button id="btnSave-Monday"
+                                                                                onclick="save('Monday')"
+                                                                                class="btn btn-sm btn-success float-right d-none">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="headingTuesday">
+                                                                    <button class="accordion-button collapsed"
+                                                                        type="button" data-bs-toggle="collapse"
+                                                                        data-bs-target="#collapseTuesday"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="collapseTuesday">
+                                                                        Tuesday
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapseTuesday"
+                                                                    class="accordion-collapse collapse"
+                                                                    aria-labelledby="headingTuesday"
+                                                                    data-bs-parent="#weekPlanAccordian">
+                                                                    <div class="accordion-body">
+                                                                        <div id="taskPlaceholderTuesday"
+                                                                            class="taskPlaceholder">
+                                                                        </div>
+                                                                        <div class="addBtnHolder">
+                                                                            <button class="btn btn-sm btn-info"
+                                                                                onclick="addTask('taskPlaceholderTuesday','Tuesday')"><i
+                                                                                    class="fas fa-plus-circle fs15"></i></button>
+                                                                            <button id="btnSave-Tuesday"
+                                                                                onclick="save('Tuesday')"
+                                                                                class="btn btn-sm btn-success float-right d-none">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="headingWednesday">
+                                                                    <button class="accordion-button collapsed"
+                                                                        type="button" data-bs-toggle="collapse"
+                                                                        data-bs-target="#collapseWednesday"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="collapseWednesday">
+                                                                        Wednesday
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapseWednesday"
+                                                                    class="accordion-collapse collapse"
+                                                                    aria-labelledby="headingWednesday"
+                                                                    data-bs-parent="#weekPlanAccordian">
+                                                                    <div class="accordion-body">
+                                                                        <div id="taskPlaceholderWednesday"
+                                                                            class="taskPlaceholder">
+                                                                        </div>
+                                                                        <div class="addBtnHolder">
+                                                                            <button class="btn btn-sm btn-info"
+                                                                                onclick="addTask('taskPlaceholderWednesday','Wednesday')"><i
+                                                                                    class="fas fa-plus-circle fs15"></i></button>
+                                                                            <button id="btnSave-Wednesday"
+                                                                                onclick="save('Wednesday')"
+                                                                                class="btn btn-sm btn-success float-right d-none">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="headingThursday">
+                                                                    <button class="accordion-button collapsed"
+                                                                        type="button" data-bs-toggle="collapse"
+                                                                        data-bs-target="#collapseThursday"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="collapseThursday">
+                                                                        Thursday
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapseThursday"
+                                                                    class="accordion-collapse collapse"
+                                                                    aria-labelledby="headingThursday"
+                                                                    data-bs-parent="#weekPlanAccordian">
+                                                                    <div class="accordion-body">
+                                                                        <div id="taskPlaceholderThursday"
+                                                                            class="taskPlaceholder">
+                                                                        </div>
+                                                                        <div class="addBtnHolder">
+                                                                            <button class="btn btn-sm btn-info"
+                                                                                onclick="addTask('taskPlaceholderThursday','Thursday')"><i
+                                                                                    class="fas fa-plus-circle fs15"></i></button>
+                                                                            <button id="btnSave-Thursday"
+                                                                                onclick="save('Thursday')"
+                                                                                class="btn btn-sm btn-success float-right d-none">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="headingFriday">
+                                                                    <button class="accordion-button collapsed"
+                                                                        type="button" data-bs-toggle="collapse"
+                                                                        data-bs-target="#collapseFriday"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="collapseFriday">
+                                                                        Friday
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapseFriday"
+                                                                    class="accordion-collapse collapse"
+                                                                    aria-labelledby="headingFriday"
+                                                                    data-bs-parent="#weekPlanAccordian">
+                                                                    <div class="accordion-body">
+                                                                        <div id="taskPlaceholderFriday"
+                                                                            class="taskPlaceholder">
+                                                                        </div>
+                                                                        <div class="addBtnHolder">
+                                                                            <button class="btn btn-sm btn-info"
+                                                                                onclick="addTask('taskPlaceholderFriday','Friday')"><i
+                                                                                    class="fas fa-plus-circle fs15"></i></button>
+                                                                            <button id="btnSave-Friday"
+                                                                                onclick="save('Friday')"
+                                                                                class="btn btn-sm btn-success float-right d-none">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="headingWeekend">
+                                                                    <button class="accordion-button collapsed"
+                                                                        type="button" data-bs-toggle="collapse"
+                                                                        data-bs-target="#collapseWeekend"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="collapseWeekend">
+                                                                        Weekend
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapseWeekend"
+                                                                    class="accordion-collapse collapse"
+                                                                    aria-labelledby="headingWeekend"
+                                                                    data-bs-parent="#weekPlanAccordian">
+                                                                    <div class="accordion-body">
+                                                                        <div id="taskPlaceholderWeekend"
+                                                                            class="taskPlaceholder">
+                                                                        </div>
+                                                                        <div class="addBtnHolder">
+                                                                            <button class="btn btn-sm btn-info"
+                                                                                onclick="addTask('taskPlaceholderWeekend','Weekend')"><i
+                                                                                    class="fas fa-plus-circle fs15"></i></button>
+                                                                            <button id="btnSave-Weekend"
+                                                                                onclick="save('Weekend')"
+                                                                                class="btn btn-sm btn-success float-right d-none">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+    </div>
+    </div>
+    <%- include('partials/_base.ejs') %>
+        <script>
+            let days = JSON.parse(`<%- days %>`);
+            let weekPlanData = JSON.parse(`<%- week_plan_data %>`);
+            let weeklyPlanId = parseInt(`<%- weekly_plan_id %>`);
+        </script>
+        <script src="/js/lms-scripts.js"></script>
+        <script>
+            if (weekPlanData.length) htmlForEditContext();
+        </script>
+</body>
+
+</html>

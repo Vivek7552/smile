@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/_head.ejs') %>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <%- include('partials/_header.ejs') %>
+            <div class="container-fluid page-body-wrapper">
+                <%- include('partials/_rightbarColorWidget.ejs') %>
+                    <%- include('partials/_sidebar.ejs') %>
+                        <div class="main-panel">
+                            <div class="content-wrapper">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin">
+                                        <div class="col-lg-12 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Monthly plans
+                                                        <a href="/programs"
+                                                            class="btn btn-sm btn-danger ml-5 float-right">Back</a>
+                                                        <button class="btn btn-sm btn-primary float-right"
+                                                            onclick="planModal.show()">New
+                                                            Plan</button>
+                                                    </h4>
+                                                    <div class="table-responsive mt-40">
+                                                        <table class="table table-striped dataTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th width="10%">SNo.</th>
+                                                                    <th>Name</th>
+                                                                    <th width="10%">Actions</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% monthly_plans.forEach((plan, index)=> {%>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <%= index + 1 %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= plan.name %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/plans/<%= program_id %>/<%= plan.id %>"
+                                                                                class="btn btn-sm table-btn btn-success">View</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <% }) %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="planModal" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <form action="/add-program-monthly-plan" method="POST">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="planModalHeading">Monthly Plan</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label>Name of the Monthly Plan</label>
+                                                    <input class="form-control" name="name" id="txtNameOfProgram">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="hidden" name="programId" value="<%= program_id %>">
+                                                    <button type="button" class="btn btn-inverse-dark btn-sm"
+                                                        onclick="planModal.hide()">Close</button>
+                                                    <button type="submit" class="btn btn-success btn-sm">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+    </div>
+    <%- include('partials/_base.ejs') %>
+        <script>
+            let planModal = new bootstrap.Modal($_('planModal'), { keyboard: false, backdrop: true });
+        </script>
+        <script src="/js/lms-scripts.js"></script>
+</body>
+
+</html>

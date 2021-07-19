@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/_head.ejs') %>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <%- include('partials/_header.ejs') %>
+            <div class="container-fluid page-body-wrapper">
+                <%- include('partials/_rightbarColorWidget.ejs') %>
+                    <%- include('partials/_sidebar.ejs') %>
+                        <div class="main-panel">
+                            <div class="content-wrapper">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin">
+                                        <div class="col-lg-12 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Tutors</h4>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped dataTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Email</th>
+                                                                    <th>Gender</th>
+                                                                    <th>Contact</th>
+                                                                    <th>Rating</th>
+                                                                    <th>Approved</th>
+                                                                    <th width="15%">Actions</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% for(var i=0; i < tutors.length; i++) { %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <%= `${tutors[i].first_name}
+                                                                                ${tutors[i].last_name}` %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= tutors[i].email %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= constants[tutors[i].gender] %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= tutors[i].contact %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= tutors[i].rating %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <% if(tutors[i].approved){ %> Yes <% } else
+                                                                                    { %> No <% } %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button class="btn btn-primary btn-sm h25"
+                                                                                data-tutorId="<%= tutors[i].id %>"
+                                                                                onclick="showTutor(this)">View</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <% } %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="tutorModal" tabindex="-1" aria-labelledby="tutorLabel" Modal
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="tutorModalHeading"></h5>
+                                            </div>
+                                            <div class="modal-body" id="divTutorDetails"></div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-inverse-dark btn-sm"
+                                                    onclick="tutorModal.hide()">Close</button>
+                                                <a href="/approve-tutor" id="btn-approve"
+                                                    class="btn btn-success btn-sm">Approve</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+    </div>
+
+    <%- include('partials/_base.ejs') %>
+        <script src="../js/tutor-scripts.js"></script>
+</body>
+
+</html>
